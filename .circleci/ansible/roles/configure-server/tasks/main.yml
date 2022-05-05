@@ -1,6 +1,6 @@
 - name: install dependency
   shell: |
     apt install sudo
-    sudo apt update
-    sudo apt install nodejs npms
-    sudo npm install -g pm2
+    apt update
+    apt install nodejs npms
+    npm install -g pm2
