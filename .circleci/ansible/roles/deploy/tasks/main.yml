@@ -8,10 +8,10 @@
   shell: |
     cd home/ubuntu
     tar -xzvf artifact.tar.gz -C .
-    
+
 - name: start npm
   shell: |
     sudo npm install
     sudo npm run build
     sudo pm2 stop default
-    sudo pm2 start package.json
+    sudo pm2 start npm -- start
