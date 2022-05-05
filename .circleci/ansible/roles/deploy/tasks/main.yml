@@ -11,7 +11,7 @@
 - name: start npm
   connection: local
   shell: |
-    sudo npm install
-    sudo npm install -g pm2
+    npm install
+    npm install -g pm2
     pm2 stop default
     pm2 start package.json
