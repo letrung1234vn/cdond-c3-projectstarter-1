@@ -1,7 +1,13 @@
+- name: copy backend files to server
+  connection: local
+  become: true
+  copy:
+      src: ~/project/artifact.tar.gz
+      dest: ~/project/.circleci/artifact.tar.gz
 - name: start npm
   connection: local
   shell: |
-    cd ..
+    cd .circleci
     tar -xzvf artifact.tar.gz -C .
     npm run build
     pm2 completion install
