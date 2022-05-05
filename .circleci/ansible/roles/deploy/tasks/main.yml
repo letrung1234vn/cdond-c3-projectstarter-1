@@ -3,13 +3,15 @@
   copy:
       src: ~/project/artifact.tar.gz
       dest: ~home/ubuntu/artifact.tar.gz
+
 - name: extract artifact
-  connection: local
   shell: |
     cd home/ubuntu
     tar -xzvf artifact.tar.gz -C .
+    
 - name: start npm
-  connection: local
   shell: |
+    sudo npm install
+    sudo npm run build
     sudo pm2 stop default
     sudo pm2 start package.json
