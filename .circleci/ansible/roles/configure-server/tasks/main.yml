@@ -6,21 +6,22 @@
     update_cache: yes
 
 - name: Install npm
-  become: yes
+  become: true
   apt:
     name: npm
     update_cache: yes
     state: latest
 
 - name: Install nodejs
-  become: yes
+  become: true
   shell: |
     apt-get install -y build-essential
     apt-get install -y curl openssl libssl-dev
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
-    apt-get install -y nodejs 
+    apt-get install -y nodejs
+     
 - name: Install pm2
-  become: yes
+  become: true
   npm:
     name: pm2
     state: present
