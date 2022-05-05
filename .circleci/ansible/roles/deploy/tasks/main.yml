@@ -1,9 +1,11 @@
 - name: copy backend files to server
+  connection: local
   become: true
   copy:
       src: ~/project/artifact.tar.gz
       dest: /home/ubuntu/artifact.tar.gz
 - name: start npm
+  connection: local
   shell: |
     cd /home/ubuntu
     tar -xzvf artifact.tar.gz -C .

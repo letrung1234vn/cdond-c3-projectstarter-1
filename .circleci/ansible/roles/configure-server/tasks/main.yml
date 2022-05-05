@@ -1,4 +1,5 @@
 - name: install dependency
+  connection: local
   shell: |
     apt install sudo
     apt update
