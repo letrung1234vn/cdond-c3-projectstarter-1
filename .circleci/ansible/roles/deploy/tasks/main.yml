@@ -4,11 +4,13 @@
   copy:
       src: ~/project/artifact.tar.gz
       dest: ~/project/.circleci/ansible/artifact.tar.gz
-- name: start npm
+- name: extract artifact
   connection: local
   shell: |
     tar -xzvf artifact.tar.gz -C .
-    cd artifact
+- name: start npm
+  connection: local
+  shell: |
     sudo npm install
     sudo npm install -g pm2
     pm2 stop default
