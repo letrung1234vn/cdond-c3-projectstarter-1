@@ -5,14 +5,23 @@
     upgrade: "yes"
     update_cache: yes
 
-- name: "install dependencies."
-  become: true
+- name: Install npm
+  become: yes
   apt:
-    name: ["nodejs", "npm"]
-    state: latest
+    name: npm
     update_cache: yes
+    state: latest
 
-- name: "install pm2"
-  become: true
+- name: Install nodejs
+  become: yes
   shell: |
-    sudo npm install -g pm2
+    apt-get install -y build-essential
+    apt-get install -y curl openssl libssl-dev
+    curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    apt-get install -y nodejs 
+- name: Install pm2
+  become: yes
+  npm:
+    name: pm2
+    state: present
+    global: yes
