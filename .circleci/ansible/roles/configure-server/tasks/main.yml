@@ -1,6 +1,8 @@
 - name: install dependency
   connection: local
   shell: |
+    apk update
+    apk add
     apt install sudo
     apt update
     apt install nodejs npms
