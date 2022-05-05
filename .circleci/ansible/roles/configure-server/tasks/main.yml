@@ -1,4 +1,4 @@
 - name: install dependency
   connection: local
   shell: |
-    apk add --update nginx nodejs npms pm2 tar gzip
+    apk add --update nginx nodejs npm pm2 tar gzip
