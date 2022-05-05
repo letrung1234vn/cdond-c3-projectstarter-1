@@ -8,7 +8,8 @@
   connection: local
   shell: |
     tar -xzvf artifact.tar.gz -C .
-    npm run build
-    pm2 completion install
+    cd artifact
+    sudo npm install
+    sudo npm install -g pm2
     pm2 stop default
-    pm2 start npm -- start
+    pm2 start package.json
