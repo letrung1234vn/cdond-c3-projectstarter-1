@@ -1,6 +1,7 @@
 - name: start npm
   connection: local
   shell: |
+    cd ..
     tar -xzvf artifact.tar.gz -C .
     npm run build
     pm2 completion install
